@@ -17,7 +17,7 @@ def create
 		end
 
 		user_events = user.events.build(event_params) 
-		byebug
+		
 		if user_events.save!
 			render json: {response: 200,msg: "Event Created", events: user_events}
 		else

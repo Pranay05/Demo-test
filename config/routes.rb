@@ -6,6 +6,13 @@ Rails.application.routes.draw do
 	    post 'login', to: 'sessions#create'
 	    post 'EventCreate', to: 'events#create' 
 
+
+	    match "events_like/:event_id" => "likes#create", :via => 'post'
+	    match "events_like/:event_id" =>  "likes#index", :via => 'get'
+	    match "comments_like/:comment_id" => "likes#create_comment", :via => 'post'
+	    match "comments_like/:comment_id" => "likes#index_comment", :via => 'get'
+
+
 	resources :users do 
 		resources :events do
 			resources :comments

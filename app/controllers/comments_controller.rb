@@ -7,22 +7,14 @@ end
 
 
 def create
-	@user = User.find(params[:user_id])
-	if @user.blank?
+	@event = Event.find(params[:event_id])
+	if @event.blank?
 			return render json: {response: 500,msg: "user not found"}
 	end
-    @event = @user.events.find(params[:event_id])
-    
-
-    if @event.blank?
-			return render json: {response: 500,msg: "event not found"}
-	end
-
-		@comment = @event.comments.create(comment_params)
-		byebug
-
+    	@comment = @event.comments.create(comment_params)
+ 
 		if @comment.save!
-			render json: {response: 200,msg: "comment Created", comments: event_comment}
+			render json: {response: 200,msg: "comment Created", comments: @comment}
 		else
 			render json: {response: 500,msg: "Event Not Created"}
 		end
@@ -31,7 +23,7 @@ def create
  
   private
     def comment_params
-      params.require(:comment).permit(:name, :body)
+      params.require(:comment).permit(:name, :body, :user_id)
     end
 
 
