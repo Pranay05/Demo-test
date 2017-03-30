@@ -7,7 +7,9 @@ class User < ApplicationRecord
 	validates_format_of :email, with: /@/
 
     has_many :user_events, dependent: :destroy
-	has_many :events
+	has_many :events, dependent: :destroy
 	has_many :comments, dependent: :destroy
+
+	mount_uploader :image, ImageUploader
     
 end

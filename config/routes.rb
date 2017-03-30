@@ -1,10 +1,31 @@
 Rails.application.routes.draw do
 
+
+
+
+        #custom routes for 
 		#get 'signup', to: 'users#new', as: 'signup'
 		post 'signup', to: 'users#create'
 	    #get 'login', to: 'sessions#new', as:'signin'
-	    post 'login', to: 'sessions#create'
+	    post 'Login', to: 'sessions#create'
+	    post 'ProfileUpdate/:user_id', to: 'users#update'
+
+
+
+
+
 	    post 'EventCreate', to: 'events#create' 
+	    get 'eventDetails/:event_id', to: 'events#show'
+	    match 'eventUpadate/:event_id' => 'events#update', :via => 'post'
+        match "eventDelete/:event_id" => "events#destroy", :via => 'post'
+        
+        #comment routes
+
+        post 'events/:event_id/commentCreate', to: 'comments#create'
+        post 'events/commentUpdate/:comment_id', to: 'comments#update'
+        post 'events/commentDelete/:comment_id', to: 'comments#destroy'
+
+
 
 
 	    match "events_like/:event_id" => "likes#create", :via => 'post'

@@ -14,7 +14,7 @@ if @event.blank?
 			return render json: {response: 500,msg: "user not found"}
 end	
 
-@like = @event.likes.create(like_params)
+@like = @event.likes.build(like_params)
 
 #if likable_type == "event"
 #@like.likable_id = @event.id

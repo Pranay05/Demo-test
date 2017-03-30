@@ -58,7 +58,7 @@ end
 private
 
 def user_params
-		params.require(:user).permit(:first_name,:email,:last_nam,:adhar_no,:dob,:gender,:state,:country,:password,:password_confirmation)
+		params.require(:user).permit(:first_name,:email,:last_nam,:adhar_no,:dob,:gender,:state,:phone,:image,:country,:password,:password_confirmation)
 
 
 end
