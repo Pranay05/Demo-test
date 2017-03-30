@@ -5,6 +5,20 @@ def index
 
 end
 
+
+def home
+
+@user= User.find_by(id: params[:home][:user_id])
+@events = @user.events.all
+
+
+render json: {response: 200, user: @user, event: @events}
+
+
+
+end
+
+
 def new
 	@user = User.new
 	render json: {:user => @user}
@@ -62,4 +76,10 @@ def user_params
 
 
 end
+
+def home_params
+params.require(:home).permit(:user_id)
+end
+
+
 end

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-
+        post 'home', to: 'users#home' 
 
         #custom routes for 
 		#get 'signup', to: 'users#new', as: 'signup'
