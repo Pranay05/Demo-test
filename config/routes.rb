@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
         #custom routes for 
 		#get 'signup', to: 'users#new', as: 'signup'
-		post 'signup', to: 'users#create'
+		#post 'signup', to: 'users#create'
 	    #get 'login', to: 'sessions#new', as:'signin'
-	    post 'Login', to: 'sessions#create'
+	    #post 'Login', to: 'sessions#create'
 	    post 'ProfileUpdate/:user_id', to: 'users#update'
 
 

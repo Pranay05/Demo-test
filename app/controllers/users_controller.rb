@@ -20,13 +20,13 @@ end
 
 
 def new
-	@user = User.new
-	render json: {:user => @user}
+	
 end
 
 def create
-	@user = User.create(user_params)
 
+	@user = User.new(user_params)
+	
 	if @user.save!
 		#session[:user_id] = @user.id
 		render json: {:user => @user, status: 200 }
@@ -72,8 +72,7 @@ end
 private
 
 def user_params
-		params.require(:user).permit(:first_name,:email,:last_nam,:adhar_no,:dob,:gender,:state,:phone,:image,:country,:password,:password_confirmation)
-
+params.require(:user).permit(:first_name,:email,:last_nam,:adhar_no,:dob,:phone,:gender,:state,:country,:password,:password_confirmation)
 
 end
 
